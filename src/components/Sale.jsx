@@ -30,7 +30,7 @@ function Sale() {
   
     console.log(data);
     const scriptURL =
-      "https://script.google.com/macros/s/AKfycbxTJKk2Iln55pjKZimpgIlItBSlUMpIwIwpPqTQSYGnC03fC5mQlAVjdIyGLOX4fxlI/exec"; 
+      "https://script.google.com/macros/s/AKfycbwi19-uetAEHe1a1uMXBxKCPk9NJ7EAI4iaMXvzvyV4B1ncHIl2uLyVj4O5jJqq21M-/exec"; 
       // your Google Apps Script URL
   
     try {
