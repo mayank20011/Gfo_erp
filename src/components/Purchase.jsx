@@ -1,41 +1,69 @@
 import React from "react";
 import PartyList from "./PartyList";
+import axios from "axios";
 function Purchase() {
-
-  const submitPurchaseData = async (e) => {
+  function submitPurchaseData(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = {};
     formData.forEach((value, key) => {
       data[key] = value;
     });
-  
+
     console.log(data);
     const scriptURL =
-      "https://script.google.com/macros/s/AKfycbwi19-uetAEHe1a1uMXBxKCPk9NJ7EAI4iaMXvzvyV4B1ncHIl2uLyVj4O5jJqq21M-/exec"; 
-      // your Google Apps Script URL
-  
-    try {
-      const response = await fetch(scriptURL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",  // Send JSON content
-        },
-        // body: JSON.stringify(data),
-        body: data,
+      "https://script.google.com/macros/s/AKfycbwkbwUDTN5wXXepdMGtGGxm_McwZkg307za_VnIVprGH-YKBR11PSAh9G9hTHq8H34u/exec";
+
+    axios
+      .post("https://example.com/api", data)
+      .then((response) => {
+        if (response.status >= 200 && response.status < 300) {
+          // If the status code is in the success range (200-299), the request was successful
+          console.log("Request successful:", response.data);
+          alert(`Success:${response.data}`);
+        }
+      })
+      .catch((error) => {
+        // Handle errors (non-2xx status codes or network errors)
+        console.error("Request failed:", error.response || error.message);
+        alert(`Failure:${error}`);
       });
-  
-      const result = await response.json();
-      if (result.status === "success") {
-        alert("Data submitted successfully!");
-      } else {
-        alert("Failed to submit data");
-      }
-    } catch (error) { 
-      console.error("Error:", error);
-      alert("An error occurred");
-    }
-  };
+  }
+
+  // const submitPurchaseData = async (e) => {
+  //   e.preventDefault();
+  //   const formData = new FormData(e.target);
+  //   const data = {};
+  //   formData.forEach((value, key) => {
+  //     data[key] = value;
+  //   });
+
+  //   console.log(data);
+  //   const scriptURL =
+  //     "https://script.google.com/macros/s/AKfycbwi19-uetAEHe1a1uMXBxKCPk9NJ7EAI4iaMXvzvyV4B1ncHIl2uLyVj4O5jJqq21M-/exec";
+  //     // your Google Apps Script URL
+
+  //   try {
+  //     const response = await fetch(scriptURL, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",  // Send JSON content
+  //       },
+  //       // body: JSON.stringify(data),
+  //       body: data,
+  //     });
+
+  //     const result = await response.json();
+  //     if (result.status === "success") {
+  //       alert("Data submitted successfully!");
+  //     } else {
+  //       alert("Failed to submit data");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //     alert("An error occurred");
+  //   }
+  // };
 
   return (
     <form
