@@ -30,7 +30,7 @@ function Sale() {
     console.log(data);
 
     const scriptURL =
-      "https://script.google.com/a/macros/vardaanfarms.com/s/AKfycbzOUzDZyp93Hq1CMIV3JT-1XheqZQbw_nvMxU8VIPhNg72qObEX8rEyMDA21xLipA/exec"; // Paste your Google Apps Script URL here
+      "https://script.google.com/macros/s/AKfycbw_TCcLUobu2YGih0TIGAicf4GlxquoWqkZ4zbWz8mzoI4aNHvTNkiYJnNfLt7MyFiO/exec"; // Paste your Google Apps Script URL here
 
     try {
       const response = await fetch(scriptURL, {

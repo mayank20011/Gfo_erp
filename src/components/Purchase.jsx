@@ -22,7 +22,7 @@ function Purchase() {
 
     console.log(data);
     const scriptURL =
-      "https://script.google.com/macros/s/AKfycbw9Mzhn6fOMDjYXbRxlqzg8u0jaArUzjsp38hhcC-JWyV_JtllPtzIQi_25ZeDkVIyV/exec";
+      "https://script.google.com/macros/s/AKfycbw_TCcLUobu2YGih0TIGAicf4GlxquoWqkZ4zbWz8mzoI4aNHvTNkiYJnNfLt7MyFiO/exec";
 
     try {
       const response = await fetch(scriptURL, {
