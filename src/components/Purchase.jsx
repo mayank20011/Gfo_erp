@@ -1,40 +1,66 @@
 import React from "react";
 import PartyList from "./PartyList";
 function Purchase() {
-  // function submitPurchaseData(e) {
+
+
+  // const submitPurchaseData = async (e) => {
+  
   //   e.preventDefault();
   //   const formData = new FormData(e.target);
   //   const data = {};
   //   formData.forEach((value, key) => {
   //     data[key] = value;
   //   });
+
   //   console.log(data);
-  // }
+  //   const scriptURL =
+  //     "https://script.google.com/macros/s/AKfycbzG685ZkFS0VXItVJ9b1TyRVpfOng3sXNvFNc26Szi759ObiW6L5mRVMltrWHKNsFzQ/exec";
+
+  //   try {
+  //     const response = await fetch(scriptURL, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(data),
+  //     });
+
+  //     const result = await response.json();
+  //     if (result.result === "success") {
+  //       alert("Data submitted successfully!");
+  //     } else {
+  //       alert("Failed to submit data");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //     alert("An error occurred");
+  //   }
+  // };
 
   const submitPurchaseData = async (e) => {
-  
     e.preventDefault();
+  
     const formData = new FormData(e.target);
     const data = {};
     formData.forEach((value, key) => {
       data[key] = value;
     });
-
+  
     console.log(data);
     const scriptURL =
-      "https://script.google.com/macros/s/AKfycbw_TCcLUobu2YGih0TIGAicf4GlxquoWqkZ4zbWz8mzoI4aNHvTNkiYJnNfLt7MyFiO/exec";
-
+      "https://script.google.com/macros/s/AKfycbzG685ZkFS0VXItVJ9b1TyRVpfOng3sXNvFNc26Szi759ObiW6L5mRVMltrWHKNsFzQ/exec"; // your Google Apps Script URL
+  
     try {
       const response = await fetch(scriptURL, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json",  // Send JSON content
         },
         body: JSON.stringify(data),
       });
-
+  
       const result = await response.json();
-      if (result.result === "success") {
+      if (result.status === "success") {
         alert("Data submitted successfully!");
       } else {
         alert("Failed to submit data");
