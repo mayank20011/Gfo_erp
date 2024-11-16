@@ -30,14 +30,14 @@ function Sale() {
   
     console.log(data);
     const scriptURL =
-      "https://script.google.com/macros/s/AKfycbwkbwUDTN5wXXepdMGtGGxm_McwZkg307za_VnIVprGH-YKBR11PSAh9G9hTHq8H34u/exec"; 
+      "https://script.google.com/macros/s/AKfycbzk2A-A8Dy3JLInqxl1Wy1XlOjJIQexgdVkLr76RhU89IbMEDLVKjLHbhIQq7QJBHVi/exec"; 
       // your Google Apps Script URL
   
     try {
       const response = await fetch(scriptURL, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",  // Send JSON content
+          "Content-Type": "text/plain",  // Send JSON content
         },
         body: JSON.stringify(data),
       });

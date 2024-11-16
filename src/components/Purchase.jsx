@@ -12,10 +12,13 @@ function Purchase() {
 
     console.log(data);
     const scriptURL =
-      "https://script.google.com/macros/s/AKfycbwkbwUDTN5wXXepdMGtGGxm_McwZkg307za_VnIVprGH-YKBR11PSAh9G9hTHq8H34u/exec";
+      "https://script.google.com/macros/s/AKfycbwbv3jC4xt5SGEsb4HZycAd4_gnMyDuejEC7rrmr9UFFhrBbWthO1y6ER2q3-Bo5gph/exec";
 
     axios
-      .post("https://example.com/api", data)
+      .post(scriptURL, data,{
+        headers: {
+          'Content-Type': 'text/plain',  // Set the correct content type
+        }})
       .then((response) => {
         if (response.status >= 200 && response.status < 300) {
           // If the status code is in the success range (200-299), the request was successful
